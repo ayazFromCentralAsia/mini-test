@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          version: 19.03.12
+          version: 20.10.17
       - run:
           name: Build Docker Image
           command: |
