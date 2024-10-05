@@ -14,7 +14,8 @@ public class TestingProjectCiCdApplication {
 		while (true){
             try {
 				System.out.println(randomWordController.getRandomWord());
-                Thread.sleep(1000);
+                System.out.println(randomWordController.getRandomWord());
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

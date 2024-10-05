@@ -9,18 +9,19 @@ jobs:
       - checkout
       - setup_remote_docker:
           version: 19.03.12
-           - run:
-           name: Build Docker Image
-           command: |
-           docker build -t viliam707/test-images-circle-ci:$CIRCLE_SHA1
-           - run:
-              name: Login to Docker Hub
-              command: |
-                echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-           - run:
-              name: Push Docker Image
-              command: |
-                docker push viliam707/test-images-circle-ci:$CIRCLE_SHA1
+      - run:
+          name: Build Docker Image
+          command: |
+            docker build -t viliam707/test-images-circle-ci:$CIRCLE_SHA1
+      - run:
+          name: Login to Docker Hub
+          command: |
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+      - run:
+          name: Push Docker Image
+          command: |
+            docker push viliam707/test-images-circle-ci:$CIRCLE_SHA1
+
 workflows:
   say-hello-workflow:
     jobs:
