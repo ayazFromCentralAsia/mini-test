@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t test-images-circle-ci:$CIRCLE_SHA1
+            docker buildx build -t viliam707/test-images-circle-ci:$CIRCLE_SHA1 .
       - run:
           name: Login to Docker Hub
           command: |
